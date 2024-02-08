@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="row">
+    <div class="col-lg-11">
+        <h1 class="yr mt-3 mb-5">YOUR  PURCHASE  CART</h1>
+        <table class="tbl table w-75">
+            <thead class="thead-light">
+                <tr class="trr bg-secxondary">
+                    <th scope="col" style="width: 350px;">
+                        <h3>Product</h3>
+                    </th>
+                    <th scope="col">
+                        <h3>Quantity</h3>
+                    </th>
+                    <th scope="col">
+                        <h3>Price</h3>
+                    </th>
+                    <th scope="col">
+                        <h3>Cancel</h3>
+                    </th>
+                    <th scope="col">
+                        <h3>Buy now</h3>
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr>
+                    {% for cartitem in cart %}
+                    <th scope="row">
+                        <img class="crtimg me-3 shadow" style="width: 85px;" src="{{cartitem.product.image.url}}"alt="">{{cartitem.product}}
+                    </th>
+                    <td>{{cartitem.product}}</td>
+                    <td>${{cartitem.product.price}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'cartapp:removecart' cartitem.product.id %}">-</a>
+                        <span>{{cartitem.quantity}}</span>
+                        <a class="btn btn-primary" href="{% url 'cartapp:addcart' cartitem.product.id %}">+</a>
+                    </td>
+                    <td>${{cartitem.product.price}}</td>
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'cartapp:fullremove' cartitem.product.id %}">Remove</a>
+                    </td>
+
+                        
+                        
+
+<!-- 
+
+                    <td>
+                        <h4 class="mt-4 ms-4">{{cartitem.quantity}}</h4>
+                    </td>
+                    <td>
+                        <h4 class="mt-4">{{cartitem.product.price}}</h4>
+                    </td>
+                    <td><a href="" class="btn btn-danger">Cancel</a></td>
+                    <td><button class="btn btn-success">Buy Now</button></td> -->
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+    <a href="{% url 'shop:home' %}" class="purch btn btn-primary pt-2 pb-2 ps-2 pe-2">
+        <h4>continue purchase</h4>
+    </a>
+
+
+
+
+    {% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ {% if category %}
+<div class="container-fluid mb-3">
+
+ <h1 class="hed mt-5 mb-2">{{category.name}}</h1>
+ <img class="can rounded-5 " src="{{category.image.url}}" style="margin-left: 35%;" width="30%" height="500" alt="">
+ <h5 class="des mt-4 mb-5">{{category.desc}}</h5></div>
+
+ {% else %}
+<div class="container-fluid mb-3">
+
+ <h1 class="hed mt-5 mb-2">All Products</h1>
+ <img class="can rounded-5 " src="../static/images/store.png" style="margin-left: 30px;" width="96%" height="600" alt="">
+ <h5 class="des mt-4 mb-5">A mobile phone (or cellphone[a]) is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within a telephone service area, as opposed to a fixed-location phone (landline phone). The radio frequency link establishes a connection to the switching systems of a mobile phone operator</h5></div>
+
+ {% endif %}
+<div class="container-fluid">
+    <div class="card-group mb-3">
+      {% for i in products %}
+        {% if i.available %}
+        <a href="{% url 'shop:details' i.id %}">
+        <div class="cad border p-5 mb-5 bg-body rounded mb-4 me-4">
+          <img src="{{i.image.url}}" height="400px" class="card-img-top rounded-4 " alt="...">
+          <div class="card-body">
+            <h3 class="card-title">{{i.name}}</h3>
+            <h5 class="card-text">${{i.price}}</h5>
+            <h6 class="card-text">{{i.category}}</h6>
+          </div>
+        </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+</div>
+
+
+
+
+
+<!-- paginator -->
+<div class="paginator mx-auto">
+  {% if products.paginator.num_pages > 1 %}<hr>
+
+   <div class="text-center">
+    {% for pg in products.paginator.page_range %}
+    <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+    {% endfor %}
+   </div>
+   {% endif %}
+
+
+</div>
+
+
+{% endblock %}

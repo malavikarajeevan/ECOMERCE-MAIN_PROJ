@@ -1,0 +1,79 @@
+
+body {
+  overflow-x: hidden
+    
+}
+.des{
+  text-align: center;
+  margin-left: 84px;
+  margin-right: 100px;
+  font-style: oblique;
+}
+.hed{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.card-group{
+  width: 100vw;
+  margin-left: 110px;
+}
+.card-group img{
+  width: 195px;
+  margin-left: 8px;
+  margin-right: 15px;
+  margin-top: 10px;
+  height: 22vh;
+}
+.card-group a{
+  text-decoration: none;
+  color: black;
+}
+.col2{
+  margin-top: 220px;
+}
+.col1{
+  margin-top: 40px;
+}
+.cd{
+  height: 49vh;
+  width: 22vw;
+  margin-top: 120px;
+  margin-left: 40px;
+}
+.cd img{
+  width: 300px;
+}
+.conta{
+  height: 98vh
+}
+.kk{
+  width: 30%;
+  
+}
+.ab{
+  margin-left: 45%;
+}
+.reg{
+  width: 30%;
+  margin-left: 80px
+  
+}
+.ac{
+  margin-left: 40%;
+}
+.ser{
+  margin-right: 50%;
+}
+.log{
+  margin-right: 200%;
+}
+/* .crtimg{
+  width: 10px;
+}
+.abc{
+  width: 40px;
+} */
+
+  
+
+  
