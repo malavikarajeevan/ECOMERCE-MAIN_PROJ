@@ -68,15 +68,16 @@
         </table>
     </div>
 
-</div>
 
 
 
-    <a href="{% url 'shop:home' %}" class="purch btn btn-primary pt-2 pb-2 ps-2 pe-2">
+
+    <a href="{% url 'shop:home' %}" class="purch btn btn-primary pt-2 pb-2 ps-2 pe-2 ">
         <h4>continue purchase</h4>
     </a>
+    <a href="{% url 'cartapp:placeorder' %}" class="plac btn btn-warning pt-2"><h4>place order</h4></a>
 
-
+</div>
 
 
     {% endblock %}
